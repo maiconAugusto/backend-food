@@ -4,16 +4,11 @@ const express = require("express");
 const index_1 = require("../routes/index");
 const cors = require("cors");
 const index_2 = require("../database/index");
-index_2.default;
 const dotenv = require("dotenv");
+index_2.default;
 const app = express();
 const server = require('http').Server(app);
-const io = require("socket.io")(server, {
-    cors: {
-        origin: "http://localhost:8080",
-        methods: ["GET", "POST"]
-    }
-});
+const io = require("socket.io")(server);
 dotenv.config();
 let connectUser = {};
 io.on('connection', (socket) => {
