@@ -13,7 +13,7 @@ const io = require("socket.io")(server , {
       origin: "http://localhost:8080",
       methods: ["GET", "POST"]
     }
-  });
+  }); 
 dotenv.config(); 
 let connectUser = {};
 
