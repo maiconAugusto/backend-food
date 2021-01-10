@@ -9,6 +9,6 @@ const products = new mongoose.Schema({
     type: {type: 'string'},
     like: { type: Number },
     deslike: { type: Number },
-    userId: {type: 'string'}
+    userId: {type: 'string'} 
 })
 export default mongoose.model('products', products);

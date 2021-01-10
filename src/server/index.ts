@@ -3,6 +3,7 @@ import Router from '../routes/index';
 import {Socket} from 'socket.io';
 import * as cors from 'cors';
 import Database from '../database/index';
+Database;
 import * as dotenv from 'dotenv';
 
 const app = express();
@@ -13,23 +14,20 @@ const io = require("socket.io")(server , {
       methods: ["GET", "POST"]
     }
   });
-dotenv.config();
-let connectUser = {}
+dotenv.config(); 
+let connectUser = {};
 
 io.on('connection', (socket: Socket) => {
     socket.on('userOn', (data) => {
         connectUser = data
     })
-})
+});
 
 app.use((req: any, res: express.Response ,next: express.NextFunction)=>{
     req.io = io;
     req.connectUser = connectUser
    return next()
-})
-
-const DB = new Database();
-DB.createConnection();
+});
  
 app.use(cors());
 app.use(express.json());

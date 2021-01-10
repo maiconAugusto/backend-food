@@ -4,6 +4,7 @@ const express = require("express");
 const index_1 = require("../routes/index");
 const cors = require("cors");
 const index_2 = require("../database/index");
+index_2.default;
 const dotenv = require("dotenv");
 const app = express();
 const server = require('http').Server(app);
@@ -25,8 +26,6 @@ app.use((req, res, next) => {
     req.connectUser = connectUser;
     return next();
 });
-const DB = new index_2.default();
-DB.createConnection();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
