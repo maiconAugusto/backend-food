@@ -3,13 +3,17 @@ import Router from '../routes/index';
 import {Socket} from 'socket.io';
 import * as cors from 'cors';
 import Database from '../database/index';
-import * as dotenv from 'dotenv';
-
 Database;
+import * as dotenv from 'dotenv';
 
 const app = express();
 const server = require('http').Server(app)
-const io = require("socket.io")(server);
+const io = require("socket.io")(server , {
+    // cors: {
+    //   origin: "http://localhost:8080",
+    //   methods: ["GET", "POST"]
+    // }
+  });
 dotenv.config(); 
 let connectUser = {};
 
