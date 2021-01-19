@@ -27,10 +27,16 @@ export default {
             image_path: req.file.filename
         }
         unlink(req.file.path, ()=>{})
-        next()
+        next() 
+
+        
     },
     async updateFile(req: any, res: Response, next: NextFunction){
     const {image_path} = req.body;
+    
+    if (req.file === undefined){
+      return next();
+    }
     const metadata = {
       metadata: {
         firebaseStorageDownloadTokens: req.file.filename

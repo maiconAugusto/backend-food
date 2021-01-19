@@ -37,6 +37,9 @@ exports.default = {
     updateFile(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             const { image_path } = req.body;
+            if (req.file === undefined) {
+                return next();
+            }
             const metadata = {
                 metadata: {
                     firebaseStorageDownloadTokens: req.file.filename

@@ -9,6 +9,6 @@ const users = new mongoose.Schema({
     image_path: {type: 'string'},
     storeName: {type: 'string'},
     active: Boolean,
-    isfoof: Boolean
+    isfood: Boolean
 })
 export default mongoose.model('users', users);
