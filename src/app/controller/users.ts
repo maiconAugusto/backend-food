@@ -16,12 +16,11 @@ class Users {
         return res.status(200).json({data: response})
     }
     async create(req: Request, res: Response) {
-        const data = req.body;
+        const data = req.body; 
         if (await users.findOne({'email': data.email})) {
             return res.status(404).json({data: 'Este e-mail já está em uso.'})
         }
         data.password = await bcrypt.hash(data.password, bcrypt.genSaltSync(8)); 
- 
         await new users(data).save();
         return res.status(201).json({data: 'Cadastro realizado com sucesso.'});
     }
