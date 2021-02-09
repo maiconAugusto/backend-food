@@ -7,6 +7,7 @@ import ProductPhoto from '../app/controller/productPhoto';
 import Evaluations from '../app/controller/productEvaluation';
 import Solicitation from '../app/controller/solicitation';
 import JWTM from '../middleware/auth';
+import Medicine from '../app/controller/medicine';
 import Bucket from '../storage/index';
 import * as multer from 'multer';
 import storage from '../config/multer';
@@ -43,6 +44,14 @@ class Routes {
         this.routes.post('/solicitation', Solicitation.create);
         this.routes.delete('/solicitation/:id', Solicitation.delete);
         this.routes.put('/solicitation/:id', Solicitation.update);
+
+        // TESTE
+        this.routes.get('/medicine', Medicine.index);
+        this.routes.get('/medicine/:id', Medicine.show);
+        this.routes.post('/medicine', Medicine.create);
+        this.routes.delete('/medicine/:id', Medicine.delete);
+        this.routes.put('/medicine/:id', Medicine.update);
+
     }
     
 }

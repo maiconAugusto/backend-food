@@ -9,6 +9,7 @@ const productPhoto_1 = require("../app/controller/productPhoto");
 const productEvaluation_1 = require("../app/controller/productEvaluation");
 const solicitation_1 = require("../app/controller/solicitation");
 const auth_1 = require("../middleware/auth");
+const medicine_1 = require("../app/controller/medicine");
 const index_1 = require("../storage/index");
 const multer = require("multer");
 const multer_1 = require("../config/multer");
@@ -40,6 +41,12 @@ class Routes {
         this.routes.post('/solicitation', solicitation_1.default.create);
         this.routes.delete('/solicitation/:id', solicitation_1.default.delete);
         this.routes.put('/solicitation/:id', solicitation_1.default.update);
+        // TESTE
+        this.routes.get('/medicine', medicine_1.default.index);
+        this.routes.get('/medicine/:id', medicine_1.default.show);
+        this.routes.post('/medicine', medicine_1.default.create);
+        this.routes.delete('/medicine/:id', medicine_1.default.delete);
+        this.routes.put('/medicine/:id', medicine_1.default.update);
     }
 }
 exports.default = new Routes().routes;
