@@ -13,9 +13,11 @@ const medicine_1 = require("../model/medicine");
 class Products {
     index(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
             const response = yield medicine_1.default.find();
-            return res.status(200).json({ data: response });
+            let data = response.sort(function (a, b) {
+                return a.product < b.product ? -1 : a.product > b.product ? 1 : 0;
+            });
+            return res.status(200).json({ data: data });
         });
     }
     show(req, res) {
