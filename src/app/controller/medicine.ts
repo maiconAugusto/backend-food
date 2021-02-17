@@ -3,11 +3,9 @@ import {Request, Response} from 'express';
 
 class Products {
     async index(req: Request, res: Response) {
-        const response = await medicine.find();
-        let data = response.sort(function(a,b) {
-            return a.date < b.date ? -1 : a.date > b.date ? 1 : 0;
-        });
-        return res.status(200).json({data: data});
+        const {id} = req.params;
+        const response = await medicine.find({'email': id});
+        return res.status(200).json({data: response});
     }
     async show(req: Request, res: Response) {
         const { id } = req.params;

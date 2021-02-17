@@ -46,7 +46,7 @@ class Routes {
         this.routes.put('/solicitation/:id', Solicitation.update);
  
         // TESTE
-        this.routes.get('/quest', Medicine.index);
+        this.routes.get('/quests/:id', Medicine.index);
         this.routes.get('/quest/:id', Medicine.show);
         this.routes.post('/quest', Medicine.create);
         this.routes.delete('/quest/:id', Medicine.delete);
