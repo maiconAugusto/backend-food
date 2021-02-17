@@ -20,6 +20,7 @@ class Products {
         return res.status(200).json({data: response});
     }
     async create(req: Request, res: Response) {
+        console.log(req.body)
         const response = await new medicine(req.body).save();
         return res.status(201).json({data: response});
     }
