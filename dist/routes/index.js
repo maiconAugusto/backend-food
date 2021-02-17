@@ -42,11 +42,11 @@ class Routes {
         this.routes.delete('/solicitation/:id', solicitation_1.default.delete);
         this.routes.put('/solicitation/:id', solicitation_1.default.update);
         // TESTE
-        this.routes.get('/medicine', medicine_1.default.index);
-        this.routes.get('/medicine/:id', medicine_1.default.show);
-        this.routes.post('/medicine', medicine_1.default.create);
-        this.routes.delete('/medicine/:id', medicine_1.default.delete);
-        this.routes.put('/medicine/:id', medicine_1.default.update);
+        this.routes.get('/quest', medicine_1.default.index);
+        this.routes.get('/quest/:id', medicine_1.default.show);
+        this.routes.post('/quest', medicine_1.default.create);
+        this.routes.delete('/quest/:id', medicine_1.default.delete);
+        this.routes.put('/quest/:id', medicine_1.default.update);
     }
 }
 exports.default = new Routes().routes;

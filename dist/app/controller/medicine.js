@@ -9,13 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const medicine_1 = require("../model/medicine");
+const questionnaire_1 = require("../model/questionnaire");
 class Products {
     index(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = yield medicine_1.default.find();
+            const response = yield questionnaire_1.default.find();
             let data = response.sort(function (a, b) {
-                return a.product < b.product ? -1 : a.product > b.product ? 1 : 0;
+                return a.date < b.date ? -1 : a.date > b.date ? 1 : 0;
             });
             return res.status(200).json({ data: data });
         });
@@ -23,36 +23,36 @@ class Products {
     show(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const response = yield medicine_1.default.findById(id);
-            if (!(yield medicine_1.default.findOne({ '_id': id }))) {
-                return res.status(404).json({ data: 'Producto não encontrado.' });
+            const response = yield questionnaire_1.default.findById(id);
+            if (!(yield questionnaire_1.default.findOne({ '_id': id }))) {
+                return res.status(404).json({ data: 'Não encontrado.' });
             }
             return res.status(200).json({ data: response });
         });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = yield new medicine_1.default(req.body).save();
+            const response = yield new questionnaire_1.default(req.body).save();
             return res.status(201).json({ data: response });
         });
     }
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            if (!(yield medicine_1.default.findOne({ _id: id }))) {
-                return res.status(404).json({ data: 'Produto não encontrado.' });
+            if (!(yield questionnaire_1.default.findOne({ _id: id }))) {
+                return res.status(404).json({ data: 'Não encontrado.' });
             }
-            yield medicine_1.default.updateOne({ '_id': id }, req.body);
+            yield questionnaire_1.default.updateOne({ '_id': id }, req.body);
             return res.status(200).json({ data: 'Atualizado com sucesso.' });
         });
     }
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            if (!(yield medicine_1.default.findOne({ _id: id }))) {
-                return res.status(404).json({ data: 'Produto não encontrado.' });
+            if (!(yield questionnaire_1.default.findOne({ _id: id }))) {
+                return res.status(404).json({ data: 'Não encontrado.' });
             }
-            yield medicine_1.default.findByIdAndDelete(id);
+            yield questionnaire_1.default.findByIdAndDelete(id);
             return res.status(200).json({ data: 'Deletado com sucesso.' });
         });
     }

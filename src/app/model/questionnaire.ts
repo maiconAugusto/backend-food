@@ -5,7 +5,7 @@ const questionnaire = new mongoose.Schema({
     title: {type: 'string'},
     questionnaires: Array,
     latitude: {type: 'string'},
-    longitude: {type: 'string'},
+    longitude: {type: 'string'}, 
     date: {type: 'string'},
 })
 export default mongoose.model('questionnaire', questionnaire);
