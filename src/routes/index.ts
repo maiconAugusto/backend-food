@@ -46,12 +46,11 @@ class Routes {
         this.routes.put('/solicitation/:id', Solicitation.update);
 
         // TESTE
-        this.routes.get('/medicine', Medicine.index);
-        this.routes.get('/medicine/:id', Medicine.show);
-        this.routes.post('/medicine', Medicine.create);
-        this.routes.delete('/medicine/:id', Medicine.delete);
-        this.routes.put('/medicine/:id', Medicine.update);
-
+        this.routes.get('/quest', Medicine.index);
+        this.routes.get('/quest/:id', Medicine.show);
+        this.routes.post('/quest', Medicine.create);
+        this.routes.delete('/quest/:id', Medicine.delete);
+        this.routes.put('/quest/:id', Medicine.update);
     }
     
 }
