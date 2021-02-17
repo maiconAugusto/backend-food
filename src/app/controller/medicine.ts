@@ -4,9 +4,9 @@ import {Request, Response} from 'express';
 class Products {
     async index(req: Request, res: Response) {
         const {id} = req.params;
-        const response = await medicine.find({'email': id});
+        const response = await medicine.find({'user': id});
         return res.status(200).json({data: response});
-    }
+    } 
     async show(req: Request, res: Response) {
         const { id } = req.params;
         const response = await medicine.findById(id);

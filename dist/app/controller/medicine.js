@@ -14,7 +14,7 @@ class Products {
     index(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const response = yield questionnaire_1.default.find({ 'email': id });
+            const response = yield questionnaire_1.default.find({ 'user': id });
             return res.status(200).json({ data: response });
         });
     }
